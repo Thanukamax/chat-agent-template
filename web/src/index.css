@@ -1,0 +1,167 @@
+:root {
+  --bg: #0e0f12;
+  --panel: #16181d;
+  --border: #262932;
+  --text: #e8eaed;
+  --muted: #8a8f99;
+  --accent: #5e9eff;
+  --user-bubble: #2a3a5a;
+  --tool-bg: #1b1e25;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; margin: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  gap: 1rem;
+}
+
+.app-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.app-tagline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.app-main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.agent-chat {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.agent-log {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.agent-turn { display: flex; flex-direction: column; }
+.agent-turn--user { align-items: flex-end; }
+.agent-turn--assistant { align-items: flex-start; gap: 0.4rem; }
+
+.agent-bubble {
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.75rem;
+  max-width: 80%;
+  white-space: pre-wrap;
+  line-height: 1.45;
+  font-size: 0.92rem;
+}
+
+.agent-turn--user .agent-bubble {
+  background: var(--user-bubble);
+  border-bottom-right-radius: 0.25rem;
+}
+
+.agent-turn--assistant .agent-bubble {
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.tool-call-card {
+  background: var(--tool-bg);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  width: 80%;
+  max-width: 100%;
+  font-size: 0.82rem;
+  overflow: hidden;
+}
+
+.tool-call-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.45rem 0.65rem;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+.tool-call-head:hover { background: rgba(255,255,255,0.03); }
+
+.tool-call-icon { width: 1rem; text-align: center; }
+.tool-call-name { font-family: ui-monospace, "JetBrains Mono", monospace; }
+.tool-call-status { margin-left: auto; color: var(--muted); font-size: 0.75rem; }
+
+.tool-call-body { padding: 0.35rem 0.65rem 0.65rem; border-top: 1px solid var(--border); }
+.tool-call-section + .tool-call-section { margin-top: 0.5rem; }
+.tool-call-label { color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.tool-call-json {
+  margin: 0.25rem 0 0;
+  padding: 0.5rem;
+  background: rgba(0,0,0,0.35);
+  border-radius: 0.35rem;
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  overflow-x: auto;
+}
+
+.agent-composer {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.65rem;
+  border-top: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.agent-input {
+  flex: 1;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.agent-input:focus { outline: none; border-color: var(--accent); }
+
+.agent-send {
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  border: 0;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font: inherit;
+}
+
+.agent-send:disabled { opacity: 0.5; cursor: not-allowed; }

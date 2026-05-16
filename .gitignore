@@ -1,0 +1,31 @@
+# Env
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Node / Bun
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+bun.lockb
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Workspace
+.workspace/
